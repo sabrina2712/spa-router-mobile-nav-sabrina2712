@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Home from "./home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./style.css";
@@ -9,6 +9,10 @@ export default class Menubar extends Component {
     super(props);
     this.state = { isOpen: false };
   }
+
+  clickHandler = () => {
+    this.setState({ isOpen: true });
+  };
 
   menuBarOption = () => {
     return (
@@ -28,6 +32,17 @@ export default class Menubar extends Component {
     );
   };
   render() {
-    return <div>{this.menuBarOption()}</div>;
+    return (
+      <div>
+        {this.menuBarOption()}
+        <div className="App">
+          <div onClick={this.clickHandler}>
+            <div className="burger-menu"></div>
+            <div className="burger-menu"></div>
+            <div className="burger-menu"></div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
