@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+import Menubar from "./component/menubar";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
+
+class App extends Component() {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+  }
+  clickHandler = () => {
+    this.setState({ isOpen: true });
+  };
+  render() {
+    return (
+      <div>
+        <Menubar />
+        <div className="App">
+          <div onClick={this.clickHandler}>
+            <div className="burger-menu"></div>
+            <div className="burger-menu"></div>
+            <div className="burger-menu"></div>
+          </div>
+        </div>
+        <Switch>
+          <Route path="/about">
+            <div>I am about</div>
+          </Route>
+          <Route path="/users">
+            <div>I am users</div>
+          </Route>
+          <Route path="/">
+            <div>I am home</div>
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
