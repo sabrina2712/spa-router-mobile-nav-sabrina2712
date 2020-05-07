@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.content {
+  width: 400px;
+  height: 400px;
+  background-color: hotpink;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.drop-menubar {
+  width: 400px;
+  height: 400px;
+  background-color: skyblue;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
