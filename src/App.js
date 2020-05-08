@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./App.css";
 
-import { BrowserRouter as Switch, Route, Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Menubar from "./components/menubar";
 
 class App extends Component {
@@ -19,7 +19,20 @@ class App extends Component {
       <div>
         {this.state.isOpen === false ? (
           <div className="content">
-            <div>Home</div>
+            <Switch>
+              <Route path="/">
+                <div>Home</div>
+              </Route>
+
+              <Route path="*">
+                <div>404</div>
+                Please visit:
+                <Link to="/">Home</Link>
+                <Link to="/projects">Projects</Link>
+                <Link to="/about">About</Link>
+              </Route>
+            </Switch>
+
             <div onClick={this.onClickHandler}>menu</div>
           </div>
         ) : (
